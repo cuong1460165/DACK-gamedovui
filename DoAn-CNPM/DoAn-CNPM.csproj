@@ -103,6 +103,7 @@
     <None Include="Resources\giaodien1.png" />
     <None Include="Resources\trangchu1.png" />
     <None Include="Resources\batdau21.png" />
+    <None Include="Resources\close.jpg" />
     <Content Include="Resources\giaodien.png" />
     <Content Include="Resources\start1.png" />
     <Content Include="Resources\trangchu.png" />
