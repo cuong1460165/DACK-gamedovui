@@ -1,0 +1,113 @@
+﻿namespace DoAn_CNPM
+{
+    partial class Menu
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnGuide = new System.Windows.Forms.Button();
+            this.btnHighScore = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnStart.Location = new System.Drawing.Point(565, 301);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(260, 35);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Bắt Đầu";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnGuide
+            // 
+            this.btnGuide.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuide.FlatAppearance.BorderSize = 0;
+            this.btnGuide.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGuide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGuide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuide.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuide.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnGuide.Location = new System.Drawing.Point(565, 391);
+            this.btnGuide.Name = "btnGuide";
+            this.btnGuide.Size = new System.Drawing.Size(260, 35);
+            this.btnGuide.TabIndex = 1;
+            this.btnGuide.Text = "Hướng dẫn";
+            this.btnGuide.UseVisualStyleBackColor = false;
+            // 
+            // btnHighScore
+            // 
+            this.btnHighScore.BackColor = System.Drawing.Color.Transparent;
+            this.btnHighScore.FlatAppearance.BorderSize = 0;
+            this.btnHighScore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHighScore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHighScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHighScore.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHighScore.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnHighScore.Location = new System.Drawing.Point(569, 478);
+            this.btnHighScore.Name = "btnHighScore";
+            this.btnHighScore.Size = new System.Drawing.Size(260, 35);
+            this.btnHighScore.TabIndex = 2;
+            this.btnHighScore.Text = "Điểm Cao";
+            this.btnHighScore.UseVisualStyleBackColor = false;
+            // 
+            // Menu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DoAn_CNPM.Properties.Resources.trangchu;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(917, 583);
+            this.Controls.Add(this.btnHighScore);
+            this.Controls.Add(this.btnGuide);
+            this.Controls.Add(this.btnStart);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(939, 639);
+            this.MinimumSize = new System.Drawing.Size(939, 636);
+            this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu";
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnGuide;
+        private System.Windows.Forms.Button btnHighScore;
+    }
+}
