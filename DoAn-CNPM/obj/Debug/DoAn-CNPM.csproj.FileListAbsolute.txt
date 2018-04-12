@@ -9,3 +9,4 @@ c:\users\mau\documents\visual studio 2013\Projects\DoAn-CNPM\DoAn-CNPM\obj\Debug
 C:\Users\MAU\documents\visual studio 2013\Projects\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.LoadGame.resources
 C:\Users\MAU\documents\visual studio 2013\Projects\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.Menu.resources
 C:\Users\MAU\documents\visual studio 2013\Projects\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.PlayGame.resources
+C:\Users\MAU\documents\visual studio 2013\Projects\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.CustomListView.resources

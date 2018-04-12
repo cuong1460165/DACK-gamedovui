@@ -8,9 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 namespace DoAn_CNPM
 {
+
     public partial class PlayGame : Form
     {
         public PlayGame()
@@ -25,6 +28,7 @@ namespace DoAn_CNPM
         static int tien = 100;
         static int[] temprd = new int[16];
         static System.Media.SoundPlayer mbegin = new System.Media.SoundPlayer();
+        CustomListView cus = new CustomListView();
         public String strResult()
         {
             String temp = "";
@@ -322,6 +326,14 @@ namespace DoAn_CNPM
                         btndapanB.Visible = false;
                 }
             }
+        }
+
+        private void btnCall_Click(object sender, EventArgs e)
+        {
+            string[] row = { "Cuong","Dam Tac"};
+            var listViewItem = new ListViewItem(row); 
+            listView1.Items.Add(listViewItem);
+            this.pnlCall.Show();
         }
     }
 }

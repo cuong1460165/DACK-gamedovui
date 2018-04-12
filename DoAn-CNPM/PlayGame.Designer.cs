@@ -42,6 +42,12 @@
             this.btndapanC = new System.Windows.Forms.Button();
             this.btndapanD = new System.Windows.Forms.Button();
             this.tmSec = new System.Windows.Forms.Timer(this.components);
+            this.pnlCall = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colJob = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pnlCall.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSTT
@@ -85,6 +91,7 @@
             this.btnCall.Size = new System.Drawing.Size(62, 57);
             this.btnCall.TabIndex = 2;
             this.btnCall.UseVisualStyleBackColor = false;
+            this.btnCall.Click += new System.EventHandler(this.btnCall_Click);
             // 
             // btnAu
             // 
@@ -203,6 +210,53 @@
             this.tmSec.Interval = 1000;
             this.tmSec.Tick += new System.EventHandler(this.tmSec_Tick);
             // 
+            // pnlCall
+            // 
+            this.pnlCall.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCall.BackgroundImage = global::DoAn_CNPM.Properties.Resources.background12;
+            this.pnlCall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlCall.Controls.Add(this.btnClose);
+            this.pnlCall.Controls.Add(this.listView1);
+            this.pnlCall.Location = new System.Drawing.Point(266, 2);
+            this.pnlCall.Name = "pnlCall";
+            this.pnlCall.Size = new System.Drawing.Size(675, 337);
+            this.pnlCall.TabIndex = 11;
+            this.pnlCall.Visible = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(593, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 32);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "button1";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.BackgroundImage = global::DoAn_CNPM.Properties.Resources.background12;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colName,
+            this.colJob});
+            this.listView1.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
+            this.listView1.Location = new System.Drawing.Point(3, 38);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(668, 296);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // colName
+            // 
+            this.colName.Text = "Name";
+            this.colName.Width = 275;
+            // 
+            // colJob
+            // 
+            this.colJob.Text = "Job";
+            this.colJob.Width = 184;
+            // 
             // PlayGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -210,6 +264,7 @@
             this.BackgroundImage = global::DoAn_CNPM.Properties.Resources.giaodien;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(938, 724);
+            this.Controls.Add(this.pnlCall);
             this.Controls.Add(this.btndapanD);
             this.Controls.Add(this.btndapanC);
             this.Controls.Add(this.btndapanB);
@@ -231,6 +286,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ai là triệu phú";
             this.Load += new System.EventHandler(this.PlayGame_Load);
+            this.pnlCall.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +306,10 @@
         private System.Windows.Forms.Button btndapanC;
         private System.Windows.Forms.Button btndapanD;
         private System.Windows.Forms.Timer tmSec;
+        private System.Windows.Forms.Panel pnlCall;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colJob;
+        private System.Windows.Forms.Button btnClose;
     }
 }
