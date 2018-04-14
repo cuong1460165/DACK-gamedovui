@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayGame));
             this.lblSTT = new System.Windows.Forms.Label();
             this.btn50 = new System.Windows.Forms.Button();
@@ -47,7 +50,14 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colJob = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tmCall = new System.Windows.Forms.Timer(this.components);
+            this.rtxtBoxCall = new System.Windows.Forms.RichTextBox();
+            this.pnlAu = new System.Windows.Forms.Panel();
+            this.Percent = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.rtxtBoxAu = new System.Windows.Forms.RichTextBox();
             this.pnlCall.SuspendLayout();
+            this.pnlAu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSTT
@@ -106,6 +116,7 @@
             this.btnAu.Size = new System.Drawing.Size(62, 57);
             this.btnAu.TabIndex = 3;
             this.btnAu.UseVisualStyleBackColor = false;
+            this.btnAu.Click += new System.EventHandler(this.btnAu_Click);
             // 
             // lblTime
             // 
@@ -215,6 +226,8 @@
             this.pnlCall.BackColor = System.Drawing.Color.Transparent;
             this.pnlCall.BackgroundImage = global::DoAn_CNPM.Properties.Resources.background12;
             this.pnlCall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlCall.Controls.Add(this.pnlAu);
+            this.pnlCall.Controls.Add(this.rtxtBoxCall);
             this.pnlCall.Controls.Add(this.btnClose);
             this.pnlCall.Controls.Add(this.listView1);
             this.pnlCall.Location = new System.Drawing.Point(266, 2);
@@ -225,12 +238,16 @@
             // 
             // btnClose
             // 
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
             this.btnClose.Location = new System.Drawing.Point(593, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 32);
             this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "button1";
+            this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // listView1
             // 
@@ -246,6 +263,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // colName
             // 
@@ -256,6 +274,60 @@
             // 
             this.colJob.Text = "Job";
             this.colJob.Width = 184;
+            // 
+            // tmCall
+            // 
+            this.tmCall.Interval = 1000;
+            this.tmCall.Tick += new System.EventHandler(this.tmCall_Tick);
+            // 
+            // rtxtBoxCall
+            // 
+            this.rtxtBoxCall.BackColor = System.Drawing.SystemColors.Control;
+            this.rtxtBoxCall.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtBoxCall.Location = new System.Drawing.Point(3, 38);
+            this.rtxtBoxCall.Name = "rtxtBoxCall";
+            this.rtxtBoxCall.ReadOnly = true;
+            this.rtxtBoxCall.Size = new System.Drawing.Size(669, 296);
+            this.rtxtBoxCall.TabIndex = 2;
+            this.rtxtBoxCall.Text = "";
+            this.rtxtBoxCall.Visible = false;
+            // 
+            // pnlAu
+            // 
+            this.pnlAu.Controls.Add(this.rtxtBoxAu);
+            this.pnlAu.Controls.Add(this.Percent);
+            this.pnlAu.Location = new System.Drawing.Point(3, 41);
+            this.pnlAu.Name = "pnlAu";
+            this.pnlAu.Size = new System.Drawing.Size(672, 293);
+            this.pnlAu.TabIndex = 3;
+            this.pnlAu.Visible = false;
+            // 
+            // Percent
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Percent.ChartAreas.Add(chartArea1);
+            this.Percent.Dock = System.Windows.Forms.DockStyle.Left;
+            legend1.Name = "Legend1";
+            this.Percent.Legends.Add(legend1);
+            this.Percent.Location = new System.Drawing.Point(0, 0);
+            this.Percent.Name = "Percent";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Percent";
+            this.Percent.Series.Add(series1);
+            this.Percent.Size = new System.Drawing.Size(387, 293);
+            this.Percent.TabIndex = 0;
+            this.Percent.Text = "Percent";
+            // 
+            // rtxtBoxAu
+            // 
+            this.rtxtBoxAu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtBoxAu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtBoxAu.Location = new System.Drawing.Point(387, 0);
+            this.rtxtBoxAu.Name = "rtxtBoxAu";
+            this.rtxtBoxAu.Size = new System.Drawing.Size(285, 293);
+            this.rtxtBoxAu.TabIndex = 1;
+            this.rtxtBoxAu.Text = "";
             // 
             // PlayGame
             // 
@@ -287,6 +359,8 @@
             this.Text = "Ai là triệu phú";
             this.Load += new System.EventHandler(this.PlayGame_Load);
             this.pnlCall.ResumeLayout(false);
+            this.pnlAu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Percent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +385,10 @@
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colJob;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Timer tmCall;
+        private System.Windows.Forms.RichTextBox rtxtBoxCall;
+        private System.Windows.Forms.Panel pnlAu;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Percent;
+        private System.Windows.Forms.RichTextBox rtxtBoxAu;
     }
 }

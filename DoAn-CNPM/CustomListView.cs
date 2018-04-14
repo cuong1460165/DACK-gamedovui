@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DoAn_CNPM
 {
-    public partial class CustomListView : ListBox
+    public partial class CustomListView : RichTextBox
     {
         public CustomListView()
         {

@@ -28,6 +28,9 @@ namespace DoAn_CNPM
         static int tien = 100;
         static int[] temprd = new int[16];
         static System.Media.SoundPlayer mbegin = new System.Media.SoundPlayer();
+        static string HelperName = "";
+        static int secCall = 0;
+        static int Helper = 0;
         CustomListView cus = new CustomListView();
         public String strResult()
         {
@@ -57,12 +60,16 @@ namespace DoAn_CNPM
             tien = 100;
             stt = 0;
             sec = 30;
+            Helper = 0;
         }
         public void EqualAnswer(String answer, object sender,EventArgs e)
         {
             if (answer == ListQues[stt].DA)
             {
                 mbegin.SoundLocation = "E:/Ima-Mus/Sounds/dap/dung.wav";
+                pnlCall.Visible = false;
+                pnlAu.Visible = false;
+                Helper = 0;
                 mbegin.Play();
                 DialogResult dialogResult = MessageBox.Show("Chơi Tiếp", "Thông Báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -201,6 +208,10 @@ namespace DoAn_CNPM
                 var wd2 = new Menu();
                 wd2.Show();
             }
+            if(Helper == 1)
+            {
+                tmSec.Enabled = false;
+            }
             else
             {
                 sec = sec - 1;
@@ -210,6 +221,7 @@ namespace DoAn_CNPM
 
         private void btn50_Click(object sender, EventArgs e)
         {
+            btn50.Enabled = false;
             Random rnd50 = new Random();
             int r, r2;
             do
@@ -330,10 +342,110 @@ namespace DoAn_CNPM
 
         private void btnCall_Click(object sender, EventArgs e)
         {
+            btnCall.Enabled = false;
+            pnlAu.Visible = false;
             string[] row = { "Cuong","Dam Tac"};
             var listViewItem = new ListViewItem(row); 
             listView1.Items.Add(listViewItem);
+            string[] row1 = { "Cuong2", "Dam Tac2" };
+            var listViewItem1 = new ListViewItem(row1);
+            listView1.Items.Add(listViewItem1);
             this.pnlCall.Show();
+            mbegin.SoundLocation = "E:/Ima-Mus/Sounds/trogiup/nt/nguoithan-goichoai-1.wav";
+            mbegin.Play();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlCall.Visible = false;
+            Helper = 0;
+            tmSec.Enabled = true;
+        }
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            mbegin.SoundLocation = "E:/Ima-Mus/Sounds/trogiup/nt/nguoithan-tut-4,.wav";
+            mbegin.Play();
+            Helper = 1;
+            tmCall.Enabled = true;
+            HelperName = listView1.SelectedItems[0].SubItems[0].Text;
+            rtxtBoxCall.Text = HelperName + ":" + " Xin chào." + "\r\n" + "MC: Xin chào " + HelperName +
+                    " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n"
+                    + "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n" +
+                    HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n" + "Bạn: Cậu có chắc chắn chứ ?\r\n"
+                    + HelperName + ": Tôi chắc chắn 100%.";
+            rtxtBoxCall.Show();
+        }
+        private void tmCall_Tick(object sender, EventArgs e)
+        {
+            secCall++;
+        }
+
+        private void rtxtBoxCall_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnAu_Click(object sender, EventArgs e)
+        {
+            btnAu.Enabled = false;
+            pnlAu.Visible = true;
+            pnlCall.Show();
+            if(btndapanA.Text == ListQues[stt].DA)
+            {
+                int r1 = rnd.Next(50,60);
+                this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                int r2 = rnd.Next(15, 20);
+                this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                int r3 = rnd.Next(5, 10);
+                this.Percent.Series["Percent"].Points.AddXY("C", r3);
+                this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
+                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                 r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                 r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                 (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+
+            }
+            if (btndapanB.Text == ListQues[stt].DA)
+            {
+                int r2 = rnd.Next(50, 60);
+                int r1 = rnd.Next(15, 20);
+                this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                int r3 = rnd.Next(5, 10);
+                this.Percent.Series["Percent"].Points.AddXY("C", r3);
+                this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
+                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                               r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                               r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                               (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+            }
+            if (btndapanC.Text == ListQues[stt].DA)
+            {
+                int r3 = rnd.Next(50, 60);
+                int r1 = rnd.Next(15, 20);
+                this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                int r2 = rnd.Next(5, 10);
+                this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                this.Percent.Series["Percent"].Points.AddXY("C", r3);
+                this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
+                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                               r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                               r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                               (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+            }
+            if (btndapanD.Text == ListQues[stt].DA)
+            {
+                int r4 = rnd.Next(50, 60);
+                int r1 = rnd.Next(15, 20);
+                this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                int r2 = rnd.Next(5, 10);
+                this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                this.Percent.Series["Percent"].Points.AddXY("C", 100 - r1 - r2-r4);
+                this.Percent.Series["Percent"].Points.AddXY("D", r4);
+                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                               r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                               (100-r1-r2-r4) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                               r4 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+            }           
         }
     }
 }
