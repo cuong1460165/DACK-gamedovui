@@ -31,6 +31,7 @@ namespace DoAn_CNPM
         static string HelperName = "";
         static int secCall = 0;
         static int Helper = 0;
+        static int Audience = 0;
         CustomListView cus = new CustomListView();
         public String strResult()
         {
@@ -61,6 +62,8 @@ namespace DoAn_CNPM
             stt = 0;
             sec = 30;
             Helper = 0;
+            Audience = 0;
+            secCall = 0;
         }
         public void EqualAnswer(String answer, object sender,EventArgs e)
         {
@@ -70,6 +73,7 @@ namespace DoAn_CNPM
                 pnlCall.Visible = false;
                 pnlAu.Visible = false;
                 Helper = 0;
+                Audience = 0;
                 mbegin.Play();
                 DialogResult dialogResult = MessageBox.Show("Chơi Tiếp", "Thông Báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -174,6 +178,34 @@ namespace DoAn_CNPM
             btndapanB.Text = ListQues[stt].B;
             btndapanC.Text = ListQues[stt].C;
             btndapanD.Text = ListQues[stt].D;
+            
+            //rtxtBoxCall.Text = HelperName + ":" + " Xin chào." + "\r\n" + "MC: Xin chào " + HelperName +
+            //        " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n"
+            //        + "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n" +
+            //        HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n" + "Bạn: Cậu có chắc chắn chứ ?\r\n"
+            //        + HelperName + ": Tôi chắc chắn 100%.";
+            if(Helper == 1)
+            {
+                HelperName = listView1.SelectedItems[0].SubItems[0].Text;
+                List<String> liststr = new List<String>();
+                string str1 = HelperName + ":" + " Xin chào." + "\r\n";
+                string str2 = "MC: Xin chào " + HelperName +
+                        " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n";
+                string str3 = "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n";
+                string str4 = HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n";
+                string str5 = "Bạn: Cậu có chắc chắn chứ ?\r\n";
+                string str6 = HelperName + ": Tôi chắc chắn 100%.";
+                liststr.Add(str1);
+                liststr.Add(str2);
+                liststr.Add(str3);
+                liststr.Add(str4);
+                liststr.Add(str5);
+                liststr.Add(str6);
+                if (secCall <= 5)
+                {
+                    rtxtBoxCall.Text = rtxtBoxCall.Text + liststr[secCall];
+                }
+            }
         }
 
         private void btndapanA_Click(object sender, EventArgs e)
@@ -208,7 +240,7 @@ namespace DoAn_CNPM
                 var wd2 = new Menu();
                 wd2.Show();
             }
-            if(Helper == 1)
+            if(Helper == 1 || Audience == 1)
             {
                 tmSec.Enabled = false;
             }
@@ -358,7 +390,9 @@ namespace DoAn_CNPM
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlCall.Visible = false;
+            rtxtBoxCall.Visible = false;
             Helper = 0;
+            Audience = 0;
             tmSec.Enabled = true;
         }
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -368,16 +402,24 @@ namespace DoAn_CNPM
             Helper = 1;
             tmCall.Enabled = true;
             HelperName = listView1.SelectedItems[0].SubItems[0].Text;
-            rtxtBoxCall.Text = HelperName + ":" + " Xin chào." + "\r\n" + "MC: Xin chào " + HelperName +
-                    " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n"
-                    + "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n" +
-                    HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n" + "Bạn: Cậu có chắc chắn chứ ?\r\n"
-                    + HelperName + ": Tôi chắc chắn 100%.";
+            //rtxtBoxCall.Text = HelperName + ":" + " Xin chào." + "\r\n" + "MC: Xin chào " + HelperName +
+            //        " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n"
+            //        + "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n" +
+            //        HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n" + "Bạn: Cậu có chắc chắn chứ ?\r\n"
+            //        + HelperName + ": Tôi chắc chắn 100%.";
             rtxtBoxCall.Show();
         }
         private void tmCall_Tick(object sender, EventArgs e)
         {
-            secCall++;
+            if(secCall<= 5)
+            {
+                secCall++;
+                PlayGame_Load(sender, e);
+            }
+            else
+            {
+                tmCall.Enabled = false;
+            }
         }
 
         private void rtxtBoxCall_TextChanged(object sender, EventArgs e)
@@ -388,6 +430,8 @@ namespace DoAn_CNPM
         {
             btnAu.Enabled = false;
             pnlAu.Visible = true;
+            Audience = 1;
+            rtxtBoxCall.Visible = false;
             pnlCall.Show();
             if(btndapanA.Text == ListQues[stt].DA)
             {
