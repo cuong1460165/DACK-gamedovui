@@ -46,15 +46,15 @@
             this.btndapanD = new System.Windows.Forms.Button();
             this.tmSec = new System.Windows.Forms.Timer(this.components);
             this.pnlCall = new System.Windows.Forms.Panel();
+            this.pnlAu = new System.Windows.Forms.Panel();
+            this.rtxtBoxAu = new System.Windows.Forms.RichTextBox();
+            this.Percent = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.rtxtBoxCall = new System.Windows.Forms.RichTextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colJob = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tmCall = new System.Windows.Forms.Timer(this.components);
-            this.rtxtBoxCall = new System.Windows.Forms.RichTextBox();
-            this.pnlAu = new System.Windows.Forms.Panel();
-            this.Percent = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.rtxtBoxAu = new System.Windows.Forms.RichTextBox();
             this.pnlCall.SuspendLayout();
             this.pnlAu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Percent)).BeginInit();
@@ -67,9 +67,10 @@
             this.lblSTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSTT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSTT.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSTT.Location = new System.Drawing.Point(163, 342);
+            this.lblSTT.Location = new System.Drawing.Point(109, 222);
+            this.lblSTT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSTT.Name = "lblSTT";
-            this.lblSTT.Size = new System.Drawing.Size(62, 26);
+            this.lblSTT.Size = new System.Drawing.Size(41, 19);
             this.lblSTT.TabIndex = 0;
             this.lblSTT.Text = "Câu:";
             // 
@@ -81,9 +82,10 @@
             this.btn50.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn50.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn50.Location = new System.Drawing.Point(27, 40);
+            this.btn50.Location = new System.Drawing.Point(18, 26);
+            this.btn50.Margin = new System.Windows.Forms.Padding(2);
             this.btn50.Name = "btn50";
-            this.btn50.Size = new System.Drawing.Size(62, 57);
+            this.btn50.Size = new System.Drawing.Size(41, 37);
             this.btn50.TabIndex = 1;
             this.btn50.UseVisualStyleBackColor = false;
             this.btn50.Click += new System.EventHandler(this.btn50_Click);
@@ -96,9 +98,10 @@
             this.btnCall.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCall.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCall.Location = new System.Drawing.Point(108, 40);
+            this.btnCall.Location = new System.Drawing.Point(72, 26);
+            this.btnCall.Margin = new System.Windows.Forms.Padding(2);
             this.btnCall.Name = "btnCall";
-            this.btnCall.Size = new System.Drawing.Size(62, 57);
+            this.btnCall.Size = new System.Drawing.Size(41, 37);
             this.btnCall.TabIndex = 2;
             this.btnCall.UseVisualStyleBackColor = false;
             this.btnCall.Click += new System.EventHandler(this.btnCall_Click);
@@ -111,9 +114,10 @@
             this.btnAu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAu.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAu.Location = new System.Drawing.Point(193, 40);
+            this.btnAu.Location = new System.Drawing.Point(129, 26);
+            this.btnAu.Margin = new System.Windows.Forms.Padding(2);
             this.btnAu.Name = "btnAu";
-            this.btnAu.Size = new System.Drawing.Size(62, 57);
+            this.btnAu.Size = new System.Drawing.Size(41, 37);
             this.btnAu.TabIndex = 3;
             this.btnAu.UseVisualStyleBackColor = false;
             this.btnAu.Click += new System.EventHandler(this.btnAu_Click);
@@ -125,9 +129,10 @@
             this.lblTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTime.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTime.Location = new System.Drawing.Point(738, 53);
+            this.lblTime.Location = new System.Drawing.Point(492, 34);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(54, 41);
+            this.lblTime.Size = new System.Drawing.Size(36, 26);
             this.lblTime.TabIndex = 4;
             this.lblTime.Text = "30";
             // 
@@ -138,9 +143,10 @@
             this.lblMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblMoney.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMoney.Location = new System.Drawing.Point(660, 342);
+            this.lblMoney.Location = new System.Drawing.Point(440, 222);
+            this.lblMoney.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(48, 26);
+            this.lblMoney.Size = new System.Drawing.Size(33, 19);
             this.lblMoney.TabIndex = 5;
             this.lblMoney.Text = "$$$";
             // 
@@ -151,9 +157,10 @@
             this.lblQues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblQues.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQues.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblQues.Location = new System.Drawing.Point(159, 433);
+            this.lblQues.Location = new System.Drawing.Point(106, 281);
+            this.lblQues.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQues.Name = "lblQues";
-            this.lblQues.Size = new System.Drawing.Size(0, 36);
+            this.lblQues.Size = new System.Drawing.Size(0, 25);
             this.lblQues.TabIndex = 6;
             // 
             // btndapanA
@@ -164,9 +171,10 @@
             this.btndapanA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btndapanA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndapanA.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btndapanA.Location = new System.Drawing.Point(161, 527);
+            this.btndapanA.Location = new System.Drawing.Point(107, 343);
+            this.btndapanA.Margin = new System.Windows.Forms.Padding(2);
             this.btndapanA.Name = "btndapanA";
-            this.btndapanA.Size = new System.Drawing.Size(269, 57);
+            this.btndapanA.Size = new System.Drawing.Size(179, 37);
             this.btndapanA.TabIndex = 7;
             this.btndapanA.UseVisualStyleBackColor = false;
             this.btndapanA.Click += new System.EventHandler(this.btndapanA_Click);
@@ -179,9 +187,10 @@
             this.btndapanB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btndapanB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndapanB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btndapanB.Location = new System.Drawing.Point(523, 527);
+            this.btndapanB.Location = new System.Drawing.Point(349, 343);
+            this.btndapanB.Margin = new System.Windows.Forms.Padding(2);
             this.btndapanB.Name = "btndapanB";
-            this.btndapanB.Size = new System.Drawing.Size(269, 57);
+            this.btndapanB.Size = new System.Drawing.Size(179, 37);
             this.btndapanB.TabIndex = 8;
             this.btndapanB.UseVisualStyleBackColor = false;
             this.btndapanB.Click += new System.EventHandler(this.btndapanB_Click);
@@ -194,9 +203,10 @@
             this.btndapanC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btndapanC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndapanC.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btndapanC.Location = new System.Drawing.Point(161, 615);
+            this.btndapanC.Location = new System.Drawing.Point(107, 400);
+            this.btndapanC.Margin = new System.Windows.Forms.Padding(2);
             this.btndapanC.Name = "btndapanC";
-            this.btndapanC.Size = new System.Drawing.Size(269, 57);
+            this.btndapanC.Size = new System.Drawing.Size(179, 37);
             this.btndapanC.TabIndex = 9;
             this.btndapanC.UseVisualStyleBackColor = false;
             this.btndapanC.Click += new System.EventHandler(this.btndapanC_Click);
@@ -209,9 +219,10 @@
             this.btndapanD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btndapanD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndapanD.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btndapanD.Location = new System.Drawing.Point(523, 613);
+            this.btndapanD.Location = new System.Drawing.Point(349, 398);
+            this.btndapanD.Margin = new System.Windows.Forms.Padding(2);
             this.btndapanD.Name = "btndapanD";
-            this.btndapanD.Size = new System.Drawing.Size(269, 57);
+            this.btndapanD.Size = new System.Drawing.Size(179, 37);
             this.btndapanD.TabIndex = 10;
             this.btndapanD.UseVisualStyleBackColor = false;
             this.btndapanD.Click += new System.EventHandler(this.btndapanD_Click);
@@ -230,20 +241,75 @@
             this.pnlCall.Controls.Add(this.rtxtBoxCall);
             this.pnlCall.Controls.Add(this.btnClose);
             this.pnlCall.Controls.Add(this.listView1);
-            this.pnlCall.Location = new System.Drawing.Point(266, 2);
+            this.pnlCall.Location = new System.Drawing.Point(177, 1);
+            this.pnlCall.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCall.Name = "pnlCall";
-            this.pnlCall.Size = new System.Drawing.Size(675, 337);
+            this.pnlCall.Size = new System.Drawing.Size(450, 219);
             this.pnlCall.TabIndex = 11;
             this.pnlCall.Visible = false;
+            // 
+            // pnlAu
+            // 
+            this.pnlAu.Controls.Add(this.rtxtBoxAu);
+            this.pnlAu.Controls.Add(this.Percent);
+            this.pnlAu.Location = new System.Drawing.Point(2, 27);
+            this.pnlAu.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAu.Name = "pnlAu";
+            this.pnlAu.Size = new System.Drawing.Size(448, 190);
+            this.pnlAu.TabIndex = 3;
+            this.pnlAu.Visible = false;
+            // 
+            // rtxtBoxAu
+            // 
+            this.rtxtBoxAu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtBoxAu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtBoxAu.Location = new System.Drawing.Point(258, 0);
+            this.rtxtBoxAu.Margin = new System.Windows.Forms.Padding(2);
+            this.rtxtBoxAu.Name = "rtxtBoxAu";
+            this.rtxtBoxAu.Size = new System.Drawing.Size(190, 190);
+            this.rtxtBoxAu.TabIndex = 1;
+            this.rtxtBoxAu.Text = "";
+            // 
+            // Percent
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Percent.ChartAreas.Add(chartArea1);
+            this.Percent.Dock = System.Windows.Forms.DockStyle.Left;
+            legend1.Name = "Legend1";
+            this.Percent.Legends.Add(legend1);
+            this.Percent.Location = new System.Drawing.Point(0, 0);
+            this.Percent.Margin = new System.Windows.Forms.Padding(2);
+            this.Percent.Name = "Percent";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Percent";
+            this.Percent.Series.Add(series1);
+            this.Percent.Size = new System.Drawing.Size(258, 190);
+            this.Percent.TabIndex = 0;
+            this.Percent.Text = "Percent";
+            // 
+            // rtxtBoxCall
+            // 
+            this.rtxtBoxCall.BackColor = System.Drawing.SystemColors.Control;
+            this.rtxtBoxCall.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtBoxCall.Location = new System.Drawing.Point(2, 25);
+            this.rtxtBoxCall.Margin = new System.Windows.Forms.Padding(2);
+            this.rtxtBoxCall.Name = "rtxtBoxCall";
+            this.rtxtBoxCall.ReadOnly = true;
+            this.rtxtBoxCall.Size = new System.Drawing.Size(447, 194);
+            this.rtxtBoxCall.TabIndex = 2;
+            this.rtxtBoxCall.Text = "";
+            this.rtxtBoxCall.Visible = false;
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnClose.Location = new System.Drawing.Point(593, 3);
+            this.btnClose.Location = new System.Drawing.Point(395, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 32);
+            this.btnClose.Size = new System.Drawing.Size(50, 21);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -257,9 +323,10 @@
             this.colJob});
             this.listView1.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(3, 38);
+            this.listView1.Location = new System.Drawing.Point(2, 25);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(668, 296);
+            this.listView1.Size = new System.Drawing.Size(447, 194);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -280,62 +347,13 @@
             this.tmCall.Interval = 1000;
             this.tmCall.Tick += new System.EventHandler(this.tmCall_Tick);
             // 
-            // rtxtBoxCall
-            // 
-            this.rtxtBoxCall.BackColor = System.Drawing.SystemColors.Control;
-            this.rtxtBoxCall.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtBoxCall.Location = new System.Drawing.Point(3, 38);
-            this.rtxtBoxCall.Name = "rtxtBoxCall";
-            this.rtxtBoxCall.ReadOnly = true;
-            this.rtxtBoxCall.Size = new System.Drawing.Size(669, 296);
-            this.rtxtBoxCall.TabIndex = 2;
-            this.rtxtBoxCall.Text = "";
-            this.rtxtBoxCall.Visible = false;
-            // 
-            // pnlAu
-            // 
-            this.pnlAu.Controls.Add(this.rtxtBoxAu);
-            this.pnlAu.Controls.Add(this.Percent);
-            this.pnlAu.Location = new System.Drawing.Point(3, 41);
-            this.pnlAu.Name = "pnlAu";
-            this.pnlAu.Size = new System.Drawing.Size(672, 293);
-            this.pnlAu.TabIndex = 3;
-            this.pnlAu.Visible = false;
-            // 
-            // Percent
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.Percent.ChartAreas.Add(chartArea1);
-            this.Percent.Dock = System.Windows.Forms.DockStyle.Left;
-            legend1.Name = "Legend1";
-            this.Percent.Legends.Add(legend1);
-            this.Percent.Location = new System.Drawing.Point(0, 0);
-            this.Percent.Name = "Percent";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Percent";
-            this.Percent.Series.Add(series1);
-            this.Percent.Size = new System.Drawing.Size(387, 293);
-            this.Percent.TabIndex = 0;
-            this.Percent.Text = "Percent";
-            // 
-            // rtxtBoxAu
-            // 
-            this.rtxtBoxAu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtBoxAu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtBoxAu.Location = new System.Drawing.Point(387, 0);
-            this.rtxtBoxAu.Name = "rtxtBoxAu";
-            this.rtxtBoxAu.Size = new System.Drawing.Size(285, 293);
-            this.rtxtBoxAu.TabIndex = 1;
-            this.rtxtBoxAu.Text = "";
-            // 
             // PlayGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DoAn_CNPM.Properties.Resources.giaodien;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(938, 724);
+            this.ClientSize = new System.Drawing.Size(629, 471);
             this.Controls.Add(this.pnlCall);
             this.Controls.Add(this.btndapanD);
             this.Controls.Add(this.btndapanC);
@@ -350,10 +368,11 @@
             this.Controls.Add(this.lblSTT);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(960, 780);
+            this.MaximumSize = new System.Drawing.Size(645, 521);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(960, 780);
+            this.MinimumSize = new System.Drawing.Size(645, 492);
             this.Name = "PlayGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ai là triệu phú";

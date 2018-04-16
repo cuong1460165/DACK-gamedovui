@@ -109,6 +109,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\trangchu21.png" />
+    <None Include="Resources\xx.png" />
     <None Include="Resources\background1.png" />
     <None Include="Resources\background11.png" />
     <Content Include="Resources\batdau2.png" />
