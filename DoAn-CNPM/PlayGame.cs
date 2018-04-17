@@ -178,12 +178,6 @@ namespace DoAn_CNPM
             btndapanB.Text = ListQues[stt].B;
             btndapanC.Text = ListQues[stt].C;
             btndapanD.Text = ListQues[stt].D;
-            
-            //rtxtBoxCall.Text = HelperName + ":" + " Xin chào." + "\r\n" + "MC: Xin chào " + HelperName +
-            //        " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n"
-            //        + "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n" +
-            //        HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n" + "Bạn: Cậu có chắc chắn chứ ?\r\n"
-            //        + HelperName + ": Tôi chắc chắn 100%.";
             if(Helper == 1)
             {
                 HelperName = listView1.SelectedItems[0].SubItems[0].Text;
@@ -402,11 +396,7 @@ namespace DoAn_CNPM
             Helper = 1;
             tmCall.Enabled = true;
             HelperName = listView1.SelectedItems[0].SubItems[0].Text;
-            //rtxtBoxCall.Text = HelperName + ":" + " Xin chào." + "\r\n" + "MC: Xin chào " + HelperName +
-            //        " bạn của bạn đang ở câu hỏi mức $" + tien.ToString() + " và đang cần sự giúp đỡ.\r\n"
-            //        + "Bạn: " + HelperName + " .... Điền vào chỗ trống: " + ListQues[stt].Des + "\r\n" +
-            //        HelperName + ": Câu trả lời là " + ListQues[stt].DA + "\r\n" + "Bạn: Cậu có chắc chắn chứ ?\r\n"
-            //        + HelperName + ": Tôi chắc chắn 100%.";
+            listView1.Visible = false;
             rtxtBoxCall.Show();
         }
         private void tmCall_Tick(object sender, EventArgs e)
@@ -420,10 +410,6 @@ namespace DoAn_CNPM
             {
                 tmCall.Enabled = false;
             }
-        }
-
-        private void rtxtBoxCall_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void btnAu_Click(object sender, EventArgs e)
@@ -489,7 +475,17 @@ namespace DoAn_CNPM
                                r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
                                (100-r1-r2-r4) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
                                r4 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
-            }           
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Percent_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

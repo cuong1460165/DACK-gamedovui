@@ -30,9 +30,10 @@
         {
             this.SuspendLayout();
             // 
-            // CustomListBox
+            // CustomListView
             // 
             this.Size = new System.Drawing.Size(120, 84);
+            this.TextChanged += new System.EventHandler(this.CustomListView_TextChanged);
             this.ResumeLayout(false);
 
         }

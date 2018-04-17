@@ -22,3 +22,15 @@ C:\Users\Admin\Downloads\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.Menu.resources
 C:\Users\Admin\Downloads\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.PlayGame.resources
 C:\Users\Admin\Downloads\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.Properties.Resources.resources
 C:\Users\Admin\Downloads\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn-CNPM.csproj.GenerateResource.Cache
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\bin\Debug\DoAn-CNPM.exe.config
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn-CNPM.exe
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn-CNPM.pdb
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\bin\Debug\DoAn-CNPM.exe
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\bin\Debug\DoAn-CNPM.pdb
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn-CNPM.csprojResolveAssemblyReference.cache
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.CustomListView.resources
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.LoadGame.resources
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.Menu.resources
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.PlayGame.resources
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn_CNPM.Properties.Resources.resources
+C:\Users\MAU\Desktop\DoAn-CNPM\DoAn-CNPM\obj\Debug\DoAn-CNPM.csproj.GenerateResource.Cache
