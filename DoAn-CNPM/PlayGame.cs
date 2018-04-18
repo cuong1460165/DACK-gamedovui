@@ -19,6 +19,7 @@ namespace DoAn_CNPM
         public PlayGame()
         {
             InitializeComponent();
+            lblCheck.Text = User.label.ToString();
         }
         static Random rnd = new Random();
         static int sec = 30;
@@ -119,61 +120,129 @@ namespace DoAn_CNPM
         private async void PlayGame_Load(object sender, EventArgs e)
         {
             tmSec.Enabled = true;
-            if (list.Count == 0)
+            if(lblCheck.Text == "1")
             {
-                using (StreamReader sr = new StreamReader(@"E:\file.txt", Encoding.UTF8))
-                {
+                var user = new User();
+                using (StreamReader sr = new StreamReader(@"E:\save.txt", Encoding.UTF8))
+                {              
                     String line = await sr.ReadToEndAsync();
-
                     string[] tokens = line.Split(new string[] { ".", "\r\n" }, StringSplitOptions.None);
-
-                    for (int i = 0; i < tokens.Length - i * 7; i++)
-                    {
-                        var a = new CauHoi();
-                        a.STT = tokens[i * 7].ToString();
-                        a.Des = tokens[i * 7 + 1].ToString();
-                        a.A = tokens[i * 7 + 2].ToString();
-                        a.B = tokens[i * 7 + 3].ToString();
-                        a.C = tokens[i * 7 + 4].ToString();
-                        a.D = tokens[i * 7 + 5].ToString();
-                        a.DA = tokens[i * 7 + 6].ToString();
-                        list.Add(a);
-                    }
+                    user.Name = tokens[0];
+                    user.HighScore = tokens[1];
+                    user.NumQues = Int32.Parse(tokens[2]);
                 }
-                if (ListQues.Count == 0)
+                if (list.Count == 0)
                 {
-                    int r = 0, j = 0;
-                    int count = 0;
-                    for (int k = 0; ListQues.Count <= 5; k++)
+                    using (StreamReader sr = new StreamReader(@"E:\file.txt", Encoding.UTF8))
                     {
-                        r = rnd.Next(list.Count);
-                        if (r == 0)
+                        String line = await sr.ReadToEndAsync();
+
+                        string[] tokens = line.Split(new string[] { ".", "\r\n" }, StringSplitOptions.None);
+
+                        for (int i = 0; i < tokens.Length - i * 7; i++)
+                        {
+                            var a = new CauHoi();
+                            a.STT = tokens[i * 7].ToString();
+                            a.Des = tokens[i * 7 + 1].ToString();
+                            a.A = tokens[i * 7 + 2].ToString();
+                            a.B = tokens[i * 7 + 3].ToString();
+                            a.C = tokens[i * 7 + 4].ToString();
+                            a.D = tokens[i * 7 + 5].ToString();
+                            a.DA = tokens[i * 7 + 6].ToString();
+                            list.Add(a);
+                        }
+                    }
+                    if (ListQues.Count == 0)
+                    {
+                        int r = 0, j = 0;
+                        int count = 0;
+                        for (int k = 0; ListQues.Count <= (5-user.NumQues); k++)
                         {
                             r = rnd.Next(list.Count);
-                        }
-                        for (int i = 0; i < 15; i++)
-                        {
-                            if (temprd[i] != r)
+                            if (r == 0)
                             {
-                                count++;
+                                r = rnd.Next(list.Count);
                             }
+                            for (int i = 0; i < 15; i++)
+                            {
+                                if (temprd[i] != r)
+                                {
+                                    count++;
+                                }
+                            }
+                            if (count == 15)
+                            {
+                                temprd[j] = r;
+                                j++;
+                                ListQues.Add(list[r - 1]);
+                            }
+                            count = 0;
                         }
-                        if (count == 15)
-                        {
-                            temprd[j] = r;
-                            j++;
-                            ListQues.Add(list[r - 1]);
-                        }
-                        count = 0;
                     }
                 }
+                lblSTT.Text = "Câu " + (user.NumQues).ToString();
+                lblMoney.Text = user.HighScore.ToString();
+            }
+            else
+            {
+                if (list.Count == 0)
+                {
+                    using (StreamReader sr = new StreamReader(@"E:\file.txt", Encoding.UTF8))
+                    {
+                        String line = await sr.ReadToEndAsync();
+
+                        string[] tokens = line.Split(new string[] { ".", "\r\n" }, StringSplitOptions.None);
+
+                        for (int i = 0; i < tokens.Length - i * 7; i++)
+                        {
+                            var a = new CauHoi();
+                            a.STT = tokens[i * 7].ToString();
+                            a.Des = tokens[i * 7 + 1].ToString();
+                            a.A = tokens[i * 7 + 2].ToString();
+                            a.B = tokens[i * 7 + 3].ToString();
+                            a.C = tokens[i * 7 + 4].ToString();
+                            a.D = tokens[i * 7 + 5].ToString();
+                            a.DA = tokens[i * 7 + 6].ToString();
+                            list.Add(a);
+                        }
+                    }
+                    if (ListQues.Count == 0)
+                    {
+                        int r = 0, j = 0;
+                        int count = 0;
+                        for (int k = 0; ListQues.Count <= 5; k++)
+                        {
+                            r = rnd.Next(list.Count);
+                            if (r == 0)
+                            {
+                                r = rnd.Next(list.Count);
+                            }
+                            for (int i = 0; i < 15; i++)
+                            {
+                                if (temprd[i] != r)
+                                {
+                                    count++;
+                                }
+                            }
+                            if (count == 15)
+                            {
+                                temprd[j] = r;
+                                j++;
+                                ListQues.Add(list[r - 1]);
+                            }
+                            count = 0;
+                        }
+                    }
+                }
+                lblSTT.Text = "Câu " + (stt + 1).ToString();
+                lblMoney.Text = tien.ToString();
             }
             string sec1 = Math.Floor(Double.Parse((sec / 10).ToString())).ToString();
             string sec2 = (sec % 10).ToString();
             lblTime.Text = sec1 + sec2;
-            lblSTT.Text = "Câu " + (stt + 1).ToString();
+            //lblSTT.Text = "Câu " + (stt + 1).ToString();
             lblQues.Text = ListQues[stt].Des;
-            lblMoney.Text = tien.ToString();
+            //lblMoney.Text = tien.ToString();
             btndapanA.Text = ListQues[stt].A;
             btndapanB.Text = ListQues[stt].B;
             btndapanC.Text = ListQues[stt].C;
@@ -234,7 +303,7 @@ namespace DoAn_CNPM
                 var wd2 = new Menu();
                 wd2.Show();
             }
-            if(Helper == 1 || Audience == 1)
+            else if(Helper == 1 || Audience == 1)
             {
                 tmSec.Enabled = false;
             }
@@ -403,8 +472,8 @@ namespace DoAn_CNPM
         {
             if(secCall<= 5)
             {
-                secCall++;
                 PlayGame_Load(sender, e);
+                secCall++;
             }
             else
             {
@@ -478,14 +547,41 @@ namespace DoAn_CNPM
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnPause_Click(object sender, EventArgs e)
         {
-
+            tmSec.Enabled = false;
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn lưu lại không", "Thông Báo", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                pnlSave.Visible = true;
+                lblHighScore.Text = lblMoney.Text;
+                pnlSave.Show();
+            }
+            else
+            {
+                RenewAll();
+                Application.Exit();
+            }
         }
 
-        private void Percent_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if(txtUserName.Text == "")
+            {
+                MessageBox.Show("Điền đầy đủ thông tin");
+            }
+            else
+            {
+                TextWriter txt = new StreamWriter(@"E:\save.txt");      
+                String str = txtUserName.Text + "." + lblHighScore.Text + "." + (stt+1);
+                txt.Write(str);
+                txt.Close();
+                pnlSave.Visible = false;
+                this.Close();
+                RenewAll();
+                var wd = new LoadGame();
+                wd.Show();
+            }
         }
     }
 }

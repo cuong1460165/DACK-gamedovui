@@ -55,9 +55,18 @@
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colJob = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tmCall = new System.Windows.Forms.Timer(this.components);
+            this.btnPause = new System.Windows.Forms.Button();
+            this.pnlSave = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.lblHighScore = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCheck = new System.Windows.Forms.Label();
             this.pnlCall.SuspendLayout();
             this.pnlAu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Percent)).BeginInit();
+            this.pnlSave.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSTT
@@ -230,7 +239,7 @@
             this.pnlCall.Controls.Add(this.pnlAu);
             this.pnlCall.Controls.Add(this.btnClose);
             this.pnlCall.Controls.Add(this.listView1);
-            this.pnlCall.Location = new System.Drawing.Point(266, 2);
+            this.pnlCall.Location = new System.Drawing.Point(262, 2);
             this.pnlCall.Name = "pnlCall";
             this.pnlCall.Size = new System.Drawing.Size(675, 337);
             this.pnlCall.TabIndex = 11;
@@ -240,9 +249,9 @@
             // 
             this.rtxtBoxCall.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtBoxCall.ForeColor = System.Drawing.SystemColors.Window;
-            this.rtxtBoxCall.Location = new System.Drawing.Point(4, 38);
+            this.rtxtBoxCall.Location = new System.Drawing.Point(0, 38);
             this.rtxtBoxCall.Name = "rtxtBoxCall";
-            this.rtxtBoxCall.Size = new System.Drawing.Size(667, 296);
+            this.rtxtBoxCall.Size = new System.Drawing.Size(675, 299);
             this.rtxtBoxCall.TabIndex = 4;
             this.rtxtBoxCall.Text = "";
             this.rtxtBoxCall.Visible = false;
@@ -274,6 +283,7 @@
             // Percent
             // 
             this.Percent.BackColor = System.Drawing.Color.Transparent;
+            this.Percent.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.BorderColor = System.Drawing.Color.Transparent;
             chartArea1.BorderWidth = 0;
@@ -289,14 +299,19 @@
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
             series1.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.LabelBorderColor = System.Drawing.Color.Transparent;
             series1.LabelBorderWidth = 0;
+            series1.LabelForeColor = System.Drawing.Color.Transparent;
             series1.Legend = "Legend1";
+            series1.MarkerBorderColor = System.Drawing.Color.Transparent;
+            series1.MarkerColor = System.Drawing.Color.Transparent;
+            series1.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
             series1.Name = "Percent";
             this.Percent.Series.Add(series1);
             this.Percent.Size = new System.Drawing.Size(387, 292);
             this.Percent.TabIndex = 0;
             this.Percent.Text = "Percent";
-            this.Percent.Click += new System.EventHandler(this.Percent_Click);
             // 
             // btnClose
             // 
@@ -325,7 +340,6 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // colName
@@ -343,6 +357,100 @@
             this.tmCall.Interval = 1000;
             this.tmCall.Tick += new System.EventHandler(this.tmCall_Tick);
             // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.Color.Transparent;
+            this.btnPause.FlatAppearance.BorderSize = 0;
+            this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPause.Location = new System.Drawing.Point(683, 23);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(53, 90);
+            this.btnPause.TabIndex = 12;
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // pnlSave
+            // 
+            this.pnlSave.BackgroundImage = global::DoAn_CNPM.Properties.Resources.background12;
+            this.pnlSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlSave.Controls.Add(this.btnSave);
+            this.pnlSave.Controls.Add(this.lblHighScore);
+            this.pnlSave.Controls.Add(this.label2);
+            this.pnlSave.Controls.Add(this.txtUserName);
+            this.pnlSave.Controls.Add(this.label1);
+            this.pnlSave.Location = new System.Drawing.Point(99, 292);
+            this.pnlSave.Name = "pnlSave";
+            this.pnlSave.Size = new System.Drawing.Size(742, 413);
+            this.pnlSave.TabIndex = 13;
+            this.pnlSave.Visible = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSave.Location = new System.Drawing.Point(321, 327);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(130, 53);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "OK";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lblHighScore
+            // 
+            this.lblHighScore.AutoSize = true;
+            this.lblHighScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblHighScore.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHighScore.ForeColor = System.Drawing.Color.Transparent;
+            this.lblHighScore.Location = new System.Drawing.Point(368, 114);
+            this.lblHighScore.Name = "lblHighScore";
+            this.lblHighScore.Size = new System.Drawing.Size(0, 36);
+            this.lblHighScore.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(161, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(467, 36);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Chúc mừng bạn đã được số điểm";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(259, 207);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(310, 26);
+            this.txtUserName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(144, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 36);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên:";
+            // 
+            // lblCheck
+            // 
+            this.lblCheck.AutoSize = true;
+            this.lblCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheck.ForeColor = System.Drawing.Color.Transparent;
+            this.lblCheck.Location = new System.Drawing.Point(3, 273);
+            this.lblCheck.Name = "lblCheck";
+            this.lblCheck.Size = new System.Drawing.Size(0, 20);
+            this.lblCheck.TabIndex = 14;
+            this.lblCheck.Visible = false;
+            // 
             // PlayGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -350,6 +458,9 @@
             this.BackgroundImage = global::DoAn_CNPM.Properties.Resources.giaodien;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(938, 724);
+            this.Controls.Add(this.lblCheck);
+            this.Controls.Add(this.pnlSave);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.pnlCall);
             this.Controls.Add(this.btndapanD);
             this.Controls.Add(this.btndapanC);
@@ -375,6 +486,8 @@
             this.pnlCall.ResumeLayout(false);
             this.pnlAu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Percent)).EndInit();
+            this.pnlSave.ResumeLayout(false);
+            this.pnlSave.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +517,13 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart Percent;
         private CustomListView rtxtBoxAu;
         private CustomListView rtxtBoxCall;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Panel pnlSave;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lblHighScore;
+        private System.Windows.Forms.Label lblCheck;
     }
 }

@@ -8,8 +8,9 @@ namespace DoAn_CNPM
 {
     class User
     {
-        public string ID { get; set; }
+        public static int label;
         public string Name{get;set;}
-        public string Job { get; set; }
+        public int NumQues { get; set; }
+        public string HighScore { get; set; }
     }
 }

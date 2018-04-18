@@ -99,6 +99,7 @@
             this.btnchoiTiep.TabIndex = 3;
             this.btnchoiTiep.Text = "Chơi Tiếp";
             this.btnchoiTiep.UseVisualStyleBackColor = false;
+            this.btnchoiTiep.Click += new System.EventHandler(this.btnchoiTiep_Click);
             // 
             // Menu
             // 
