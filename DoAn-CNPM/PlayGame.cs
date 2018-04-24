@@ -20,6 +20,7 @@ namespace DoAn_CNPM
         {
             InitializeComponent();
             lblCheck.Text = User.label.ToString();
+            User.label = 0;
         }
         static Random rnd = new Random();
         static int sec = 30;
@@ -156,7 +157,7 @@ namespace DoAn_CNPM
                     {
                         int r = 0, j = 0;
                         int count = 0;
-                        for (int k = 0; ListQues.Count <= (5-user.NumQues); k++)
+                        for (int k = 0; ListQues.Count <= 5; k++)
                         {
                             r = rnd.Next(list.Count);
                             if (r == 0)
@@ -180,8 +181,12 @@ namespace DoAn_CNPM
                         }
                     }
                 }
+
                 lblSTT.Text = "Câu " + (user.NumQues).ToString();
                 lblMoney.Text = user.HighScore.ToString();
+                stt = user.NumQues - 1;
+                tien = Int32.Parse(user.HighScore.ToString());
+                lblCheck.Text = "0";
             }
             else
             {
@@ -240,7 +245,7 @@ namespace DoAn_CNPM
             string sec1 = Math.Floor(Double.Parse((sec / 10).ToString())).ToString();
             string sec2 = (sec % 10).ToString();
             lblTime.Text = sec1 + sec2;
-            //lblSTT.Text = "Câu " + (stt + 1).ToString();
+            lblSTT.Text = "Câu " + (stt + 1).ToString();
             lblQues.Text = ListQues[stt].Des;
             //lblMoney.Text = tien.ToString();
             btndapanA.Text = ListQues[stt].A;
