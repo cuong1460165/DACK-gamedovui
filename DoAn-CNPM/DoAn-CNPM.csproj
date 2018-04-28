@@ -73,6 +73,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserListView.Designer.cs">
+      <DependentUpon>UserListView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomListView.resx">
       <DependentUpon>CustomListView.cs</DependentUpon>
     </EmbeddedResource>

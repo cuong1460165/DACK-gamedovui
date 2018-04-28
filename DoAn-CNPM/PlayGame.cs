@@ -97,11 +97,12 @@ namespace DoAn_CNPM
                 }
                 if (dialogResult == DialogResult.No)
                 {
-                    RenewAll();
-                    mbegin.Stop();
-                    this.Close();
-                    var wd2 = new Menu();
-                    wd2.Show();
+                    tmSec.Enabled = false;
+                    pnlSave.Visible = true;
+                    btnHighScore.Visible = true;
+                    lblHighScore.Text = lblMoney.Text;
+                    btnSave.Visible = false;
+                    pnlSave.Show();
                 }
             }
             else
@@ -559,6 +560,8 @@ namespace DoAn_CNPM
             if(dialogResult == DialogResult.Yes)
             {
                 pnlSave.Visible = true;
+                btnSave.Visible = true;
+                btnHighScore.Visible = false;
                 lblHighScore.Text = lblMoney.Text;
                 pnlSave.Show();
             }
@@ -579,6 +582,26 @@ namespace DoAn_CNPM
             {
                 TextWriter txt = new StreamWriter(@"E:\save.txt");      
                 String str = txtUserName.Text + "." + lblHighScore.Text + "." + (stt+1);
+                txt.Write(str);
+                txt.Close();
+                pnlSave.Visible = false;
+                this.Close();
+                RenewAll();
+                var wd = new LoadGame();
+                wd.Show();
+            }
+        }
+
+        private void btnHighScore_Click(object sender, EventArgs e)
+        {
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Điền đầy đủ thông tin");
+            }
+            else
+            {
+                TextWriter txt = new StreamWriter(@"E:\highscore.txt");
+                String str = txtUserName.Text + "." + lblHighScore.Text + "\r\n";
                 txt.Write(str);
                 txt.Close();
                 pnlSave.Visible = false;
