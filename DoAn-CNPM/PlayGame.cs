@@ -34,6 +34,9 @@ namespace DoAn_CNPM
         static int secCall = 0;
         static int Helper = 0;
         static int Audience = 0;
+        static int fifty = 0;
+        static string remberfifty = "";
+        static int remberclick50 = 0;
         CustomListView cus = new CustomListView();
         public String strResult()
         {
@@ -65,6 +68,7 @@ namespace DoAn_CNPM
             sec = 30;
             Helper = 0;
             Audience = 0;
+            fifty = 0;
             secCall = 0;
         }
         public void EqualAnswer(String answer, object sender,EventArgs e)
@@ -74,8 +78,8 @@ namespace DoAn_CNPM
                 mbegin.SoundLocation = "E:/Ima-Mus/Sounds/dap/dung.wav";
                 pnlCall.Visible = false;
                 pnlAu.Visible = false;
-                Helper = 0;
-                Audience = 0;
+                //Helper = 0;
+                //Audience = 0;
                 mbegin.Play();
                 DialogResult dialogResult = MessageBox.Show("Chơi Tiếp", "Thông Báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -132,6 +136,10 @@ namespace DoAn_CNPM
                     user.Name = tokens[0];
                     user.HighScore = tokens[1];
                     user.NumQues = Int32.Parse(tokens[2]);
+                    user.Fifty = Int32.Parse(tokens[3]);
+                    user.helper = Int32.Parse(tokens[4]);
+                    user.audience = Int32.Parse(tokens[5]);
+                    user.rememberclick50 = Int32.Parse(tokens[6]);
                 }
                 if (list.Count == 0)
                 {
@@ -182,7 +190,28 @@ namespace DoAn_CNPM
                         }
                     }
                 }
-
+                if(user.Fifty == 1)
+                {
+                    btn50.BackgroundImage = DoAn_CNPM.Properties.Resources.dauXE;
+                    btn50.BackgroundImageLayout = ImageLayout.Stretch;
+                    btn50.Enabled = false;
+                    fifty = 1;
+                }
+                if(user.helper == 2)
+                {
+                    btnCall.BackgroundImage = DoAn_CNPM.Properties.Resources.dauXE;
+                    btnCall.BackgroundImageLayout = ImageLayout.Stretch;
+                    btnCall.Enabled = false;
+                    Helper = 2;
+                }
+                if(user.audience == 2)
+                {
+                    btnAu.BackgroundImage = DoAn_CNPM.Properties.Resources.dauXE;
+                    btnAu.BackgroundImageLayout = ImageLayout.Stretch;
+                    btnAu.Enabled = false;
+                    Audience = 2;
+                }
+                remberclick50 = user.rememberclick50;
                 lblSTT.Text = "Câu " + (user.NumQues).ToString();
                 lblMoney.Text = user.HighScore.ToString();
                 stt = user.NumQues - 1;
@@ -322,7 +351,11 @@ namespace DoAn_CNPM
 
         private void btn50_Click(object sender, EventArgs e)
         {
+            remberclick50 = 1;
             btn50.Enabled = false;
+            fifty = 1;
+            btn50.BackgroundImage = DoAn_CNPM.Properties.Resources.dauXE;
+            btn50.BackgroundImageLayout = ImageLayout.Stretch;
             Random rnd50 = new Random();
             int r, r2;
             do
@@ -336,25 +369,43 @@ namespace DoAn_CNPM
                 {
                     btndapanB.Visible = false;
                     if (r2 == 1)
+                    {
                         btndapanC.Visible = false;
+                        remberfifty = "d";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanD.Visible = false;
+                        remberfifty = "c";
+                    }
                 }
                 if (r == 1)
                 {
                     btndapanC.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanB.Visible = false;
+                        remberfifty = "d";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanD.Visible = false;
+                        remberfifty = "b";
+                    }
                 }
                 if (r == 2)
                 {
                     btndapanD.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanB.Visible = false;
+                        remberfifty = "c";
+                    }
                     if (r2 == 1)
+                    {
                         btndapanC.Visible = false;
+                        remberfifty = "b";
+                    }
                 }
             }
             else if (btndapanB.Text == ListQues[stt].DA)
@@ -363,25 +414,43 @@ namespace DoAn_CNPM
                 {
                     btndapanA.Visible = false;
                     if (r2 == 1)
+                    {
                         btndapanC.Visible = false;
+                        remberfifty = "d";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanD.Visible = false;
+                        remberfifty = "c";
+                    }
                 }
                 else if (r == 1)
                 {
                     btndapanC.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanA.Visible = false;
+                        remberfifty = "d";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanD.Visible = false;
+                        remberfifty = "a";
+                    }
                 }
                 else if (r == 2)
                 {
                     btndapanD.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanA.Visible = false;
+                        remberfifty = "c";
+                    }
                     if (r2 == 1)
+                    {
                         btndapanC.Visible = false;
+                        remberfifty = "a";
+                    }
                 }
             }
             else if (btndapanC.Text == ListQues[stt].DA)
@@ -390,26 +459,44 @@ namespace DoAn_CNPM
                 {
                     btndapanA.Visible = false;
                     if (r2 == 1)
+                    {
                         btndapanB.Visible = false;
+                        remberfifty = "d";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanD.Visible = false;
+                        remberfifty = "b";
+                    }
                 }
                 else if (r == 1)
                 {
                     btndapanB.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanA.Visible = false;
+                        remberfifty = "d";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanD.Visible = false;
+                        remberfifty = "a";
+                    }
                 }
                 else if (r == 2)
                 {
 
                     btndapanD.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanA.Visible = false;
+                        remberfifty = "b";
+                    }
                     if (r2 == 1)
+                    {
                         btndapanB.Visible = false;
+                        remberfifty = "a";
+                    }
                 }
             }
             else if (btndapanD.Text == ListQues[stt].DA)
@@ -418,31 +505,52 @@ namespace DoAn_CNPM
                 {
                     btndapanA.Visible = false;
                     if (r2 == 1)
+                    {
                         btndapanB.Visible = false;
+                        remberfifty = "c";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanC.Visible = false;
+                        remberfifty = "b";
+                    }
                 }
                 else if (r == 1)
                 {
                     btndapanB.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanA.Visible = false;
+                        remberfifty = "c";
+                    }
                     if (r2 == 2)
+                    {
                         btndapanC.Visible = false;
+                        remberfifty = "a";
+                    }
                 }
                 else if (r == 2)
                 {
                     btndapanC.Visible = false;
                     if (r2 == 0)
+                    {
                         btndapanA.Visible = false;
+                        remberfifty = "b";
+                    }
                     if (r2 == 1)
+                    {
                         btndapanB.Visible = false;
+                        remberfifty = "a";
+                    }
                 }
             }
         }
 
         private void btnCall_Click(object sender, EventArgs e)
         {
+            btnCall.BackgroundImage = DoAn_CNPM.Properties.Resources.dauXE;
+            btnCall.BackgroundImageLayout = ImageLayout.Stretch;
+            btnPause.Visible = false;
             btnCall.Enabled = false;
             pnlAu.Visible = false;
             string[] row = { "Cuong","Dam Tac"};
@@ -459,9 +567,17 @@ namespace DoAn_CNPM
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlCall.Visible = false;
+            btnPause.Visible = true;
+            btnPause.Enabled = true;
+            if(btnCall.Enabled == false)
+            {
+                Helper = 2;
+            }
+            if(btnAu.Enabled == false)
+            {
+                Audience = 2;
+            }
             rtxtBoxCall.Visible = false;
-            Helper = 0;
-            Audience = 0;
             tmSec.Enabled = true;
         }
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -489,67 +605,223 @@ namespace DoAn_CNPM
 
         private void btnAu_Click(object sender, EventArgs e)
         {
+            btnAu.BackgroundImage = DoAn_CNPM.Properties.Resources.dauXE;
+            btnAu.BackgroundImageLayout = ImageLayout.Stretch;
+            btnPause.Visible = false;
             btnAu.Enabled = false;
             pnlAu.Visible = true;
             Audience = 1;
             rtxtBoxCall.Visible = false;
             pnlCall.Show();
-            if(btndapanA.Text == ListQues[stt].DA)
+            if(fifty == 1 && remberclick50 == 1) 
             {
-                int r1 = rnd.Next(50,60);
-                this.Percent.Series["Percent"].Points.AddXY("A", r1);
-                int r2 = rnd.Next(15, 20);
-                this.Percent.Series["Percent"].Points.AddXY("B", r2);
-                int r3 = rnd.Next(5, 10);
-                this.Percent.Series["Percent"].Points.AddXY("C", r3);
-                this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
-                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
-                                 r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
-                                 r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
-                                 (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                 if (btndapanA.Text == ListQues[stt].DA)
+                 {
+                     int r1 = rnd.Next(70, 80);
+                     this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                     if(remberfifty == "b")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("B", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 0);
+                         rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    (100-r1) + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     if (remberfifty == "c")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("B", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 0);
+                         rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (100-r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     if(remberfifty == "d")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("B", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 100-r1);
+                         rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    (100 - r1) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                 }
+                 else if(btndapanB.Text == ListQues[stt].DA)
+                 {
+                     int r1 = rnd.Next(70, 80);
+                     if(remberfifty == "a")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("B", r1);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 0);
+                         rtxtBoxAu.Text = (100-r1) + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    r1 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     if(remberfifty == "c")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("B", r1);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 0);
+                         rtxtBoxAu.Text = 0 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    r1 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (100-r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     if(remberfifty == "d")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("B", r1);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 100-r1);
+                         rtxtBoxAu.Text = 0 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    r1 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (100-r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                 }
+                 else if(btndapanC.Text == ListQues[stt].DA)
+                 {
+                     int r1 = rnd.Next(70, 80);
+                     if(remberfifty == "a")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("B", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("C", r1);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 0);
+                         rtxtBoxAu.Text = (100-r1) + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     else if(remberfifty == "b")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("B", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("C", r1);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 0);
+                         rtxtBoxAu.Text = 0 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    (100 - r1) + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     else if (remberfifty == "d")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("B",0);
+                         this.Percent.Series["Percent"].Points.AddXY("C", r1);
+                         this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1);
+                         rtxtBoxAu.Text = 0 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                     (100 - r1) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                 }
+                 else if(btndapanD.Text == ListQues[stt].DA)
+                 {
+                     int r1 = rnd.Next(70, 80);
+                     if(remberfifty == "a")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 100-r1);
+                         this.Percent.Series["Percent"].Points.AddXY("B", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("D", r1);
+                         rtxtBoxAu.Text = (100 - r1) + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                     (r1) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     else if(remberfifty == "b")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("B", 100 - r1);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("D", r1);
+                         rtxtBoxAu.Text = 0 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    (100 - r1) + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                     (r1) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                     else if (remberfifty == "c")
+                     {
+                         this.Percent.Series["Percent"].Points.AddXY("A", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("B", 0);
+                         this.Percent.Series["Percent"].Points.AddXY("C", 100 - r1);
+                         this.Percent.Series["Percent"].Points.AddXY("D", r1);
+                         rtxtBoxAu.Text = 0 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                    0 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                    (100 - r1) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                     (r1) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                     }
+                 }
 
             }
-            if (btndapanB.Text == ListQues[stt].DA)
+            else
             {
-                int r2 = rnd.Next(50, 60);
-                int r1 = rnd.Next(15, 20);
-                this.Percent.Series["Percent"].Points.AddXY("A", r1);
-                this.Percent.Series["Percent"].Points.AddXY("B", r2);
-                int r3 = rnd.Next(5, 10);
-                this.Percent.Series["Percent"].Points.AddXY("C", r3);
-                this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
-                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
-                               r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
-                               r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
-                               (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
-            }
-            if (btndapanC.Text == ListQues[stt].DA)
-            {
-                int r3 = rnd.Next(50, 60);
-                int r1 = rnd.Next(15, 20);
-                this.Percent.Series["Percent"].Points.AddXY("A", r1);
-                int r2 = rnd.Next(5, 10);
-                this.Percent.Series["Percent"].Points.AddXY("B", r2);
-                this.Percent.Series["Percent"].Points.AddXY("C", r3);
-                this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
-                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
-                               r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
-                               r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
-                               (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
-            }
-            if (btndapanD.Text == ListQues[stt].DA)
-            {
-                int r4 = rnd.Next(50, 60);
-                int r1 = rnd.Next(15, 20);
-                this.Percent.Series["Percent"].Points.AddXY("A", r1);
-                int r2 = rnd.Next(5, 10);
-                this.Percent.Series["Percent"].Points.AddXY("B", r2);
-                this.Percent.Series["Percent"].Points.AddXY("C", 100 - r1 - r2-r4);
-                this.Percent.Series["Percent"].Points.AddXY("D", r4);
-                rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
-                               r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
-                               (100-r1-r2-r4) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
-                               r4 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                if (btndapanA.Text == ListQues[stt].DA)
+                {
+                    int r1 = rnd.Next(50, 60);
+                    this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                    int r2 = rnd.Next(15, 20);
+                    this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                    int r3 = rnd.Next(5, 10);
+                    this.Percent.Series["Percent"].Points.AddXY("C", r3);
+                    this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
+                    rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                     r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                     r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                     (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+
+                }
+                if (btndapanB.Text == ListQues[stt].DA)
+                {
+                    int r2 = rnd.Next(50, 60);
+                    int r1 = rnd.Next(15, 20);
+                    this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                    this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                    int r3 = rnd.Next(5, 10);
+                    this.Percent.Series["Percent"].Points.AddXY("C", r3);
+                    this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
+                    rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                   r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                   r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                   (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                }
+                if (btndapanC.Text == ListQues[stt].DA)
+                {
+                    int r3 = rnd.Next(50, 60);
+                    int r1 = rnd.Next(15, 20);
+                    this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                    int r2 = rnd.Next(5, 10);
+                    this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                    this.Percent.Series["Percent"].Points.AddXY("C", r3);
+                    this.Percent.Series["Percent"].Points.AddXY("D", 100 - r1 - r2 - r3);
+                    rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                   r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                   r3 + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                   (100 - r1 - r2 - r3) + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                }
+                if (btndapanD.Text == ListQues[stt].DA)
+                {
+                    int r4 = rnd.Next(50, 60);
+                    int r1 = rnd.Next(15, 20);
+                    this.Percent.Series["Percent"].Points.AddXY("A", r1);
+                    int r2 = rnd.Next(5, 10);
+                    this.Percent.Series["Percent"].Points.AddXY("B", r2);
+                    this.Percent.Series["Percent"].Points.AddXY("C", 100 - r1 - r2 - r4);
+                    this.Percent.Series["Percent"].Points.AddXY("D", r4);
+                    rtxtBoxAu.Text = r1 + "% khán giả chọn câu trả lời là " + btndapanA.Text + "\r\n" +
+                                   r2 + "% khán giả chọn câu trả lời là " + btndapanB.Text + "\r\n" +
+                                   (100 - r1 - r2 - r4) + "% khán giả chọn câu trả lời là " + btndapanC.Text + "\r\n" +
+                                   r4 + "% khán giả chọn câu trả lời là " + btndapanD.Text + "\r\n";
+                }
             }
         }
 
@@ -580,8 +852,13 @@ namespace DoAn_CNPM
             }
             else
             {
-                TextWriter txt = new StreamWriter(@"E:\save.txt");      
-                String str = txtUserName.Text + "." + lblHighScore.Text + "." + (stt+1);
+                if(fifty == 1 && Audience == 0)
+                {
+                    remberclick50 = 0;
+                }
+                TextWriter txt = new StreamWriter(@"E:\save.txt");
+                String str = txtUserName.Text + "." + lblHighScore.Text + "." + (stt + 1) + "." + fifty + "." + Helper
+                    + "." + Audience + "." + remberclick50;
                 txt.Write(str);
                 txt.Close();
                 pnlSave.Visible = false;

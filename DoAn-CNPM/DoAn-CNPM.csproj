@@ -124,6 +124,7 @@
     <None Include="Resources\trangchu1.png" />
     <None Include="Resources\batdau21.png" />
     <None Include="Resources\close.jpg" />
+    <None Include="Resources\dauXE.png" />
     <Content Include="Resources\giaodien.png" />
     <Content Include="Resources\start1.png" />
     <Content Include="Resources\trangchu.png" />

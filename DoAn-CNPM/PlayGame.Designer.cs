@@ -55,13 +55,13 @@
             this.tmCall = new System.Windows.Forms.Timer(this.components);
             this.btnPause = new System.Windows.Forms.Button();
             this.pnlSave = new System.Windows.Forms.Panel();
+            this.btnHighScore = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblHighScore = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCheck = new System.Windows.Forms.Label();
-            this.btnHighScore = new System.Windows.Forms.Button();
             this.rtxtBoxCall = new DoAn_CNPM.CustomListView();
             this.rtxtBoxAu = new DoAn_CNPM.CustomListView();
             this.pnlCall.SuspendLayout();
@@ -89,7 +89,7 @@
             this.btn50.FlatAppearance.BorderSize = 0;
             this.btn50.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn50.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn50.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn50.Location = new System.Drawing.Point(27, 40);
             this.btn50.Name = "btn50";
@@ -101,6 +101,7 @@
             // btnCall
             // 
             this.btnCall.BackColor = System.Drawing.Color.Transparent;
+            this.btnCall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCall.FlatAppearance.BorderSize = 0;
             this.btnCall.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnCall.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -361,6 +362,20 @@
             this.pnlSave.TabIndex = 13;
             this.pnlSave.Visible = false;
             // 
+            // btnHighScore
+            // 
+            this.btnHighScore.BackColor = System.Drawing.Color.Transparent;
+            this.btnHighScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHighScore.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHighScore.ForeColor = System.Drawing.Color.Transparent;
+            this.btnHighScore.Location = new System.Drawing.Point(439, 327);
+            this.btnHighScore.Name = "btnHighScore";
+            this.btnHighScore.Size = new System.Drawing.Size(130, 53);
+            this.btnHighScore.TabIndex = 5;
+            this.btnHighScore.Text = "OK";
+            this.btnHighScore.UseVisualStyleBackColor = false;
+            this.btnHighScore.Click += new System.EventHandler(this.btnHighScore_Click);
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
@@ -427,20 +442,6 @@
             this.lblCheck.Size = new System.Drawing.Size(0, 20);
             this.lblCheck.TabIndex = 14;
             this.lblCheck.Visible = false;
-            // 
-            // btnHighScore
-            // 
-            this.btnHighScore.BackColor = System.Drawing.Color.Transparent;
-            this.btnHighScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHighScore.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHighScore.ForeColor = System.Drawing.Color.Transparent;
-            this.btnHighScore.Location = new System.Drawing.Point(439, 327);
-            this.btnHighScore.Name = "btnHighScore";
-            this.btnHighScore.Size = new System.Drawing.Size(130, 53);
-            this.btnHighScore.TabIndex = 5;
-            this.btnHighScore.Text = "OK";
-            this.btnHighScore.UseVisualStyleBackColor = false;
-            this.btnHighScore.Click += new System.EventHandler(this.btnHighScore_Click);
             // 
             // rtxtBoxCall
             // 
