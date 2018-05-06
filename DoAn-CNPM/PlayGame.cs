@@ -96,6 +96,7 @@ namespace DoAn_CNPM
                     btndapanB.Visible = true;
                     btndapanC.Visible = true;
                     btndapanD.Visible = true;
+                    btnClose_Click(sender, e);
                     PlayGame_Load(sender, e);
                     mbegin.Stop();
                 }
